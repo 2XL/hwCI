@@ -5,7 +5,11 @@
     * [Independent] Platform agnostic, not restricted to platforms [deploy independently]
 
 
+
+
 ## Usage:
+
+
 
 
 * How to run specific test settings?
@@ -67,3 +71,40 @@ todo: update this tree
     * persistent data containers for caching or sharing data among instances
     
 
+
+## Docker compose:
+
+
+**Troubleshoot**
+```
+race condition during initialization
+
+case 1: app service && db service
+    | app service try query db service
+    | db not ready yet
+    | query fails
+
+solution 1: agent service [ansible]
+    | probe periodically if services are running
+    
+solution 2: watchdog python script at the web app entrypoint
+    |
+
+solction 3: tell django to restart service if fails but we are in test env...
+    |
+
+```
+
+## Ansible
+
+* software platform for configuring and managing computers which combines multinode software deployment adhoc task  execution, and configuration management.
+
+* [playbook](http://docs.ansible.com/ansible/playbooks_intro.html)
+    * yml files composed with plays, each play maps ...
+    * play map a group of hosts to some well defined roles, represented by tasks
+    * ...
+
+* profile of nodes:
+    * controlling machines [the manager of all the nodes the root]
+    * nodes .. the services ...
+    

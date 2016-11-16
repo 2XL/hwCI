@@ -6,7 +6,7 @@ MAINTAINER 2XL "chenglong.zq@gmail.com"
 ENV TERM=xterm-256color
 
 # Set mirrors to uk, checks the source if match then update and store a backup of previous list
-RUN sed -i "s/http:\/\/archive./http:\/\/uk.archive./g" /etc/apt/source.list
+RUN sed -i "s/http:\/\/archive./http:\/\/uk.archive./g" /etc/apt/sources.list
 
 
 
@@ -15,15 +15,10 @@ RUN apt-get update -y && \
          apt-get install -y \
          -o APT::Install-Recommend=false \
          -o APT::Install-Suggest=false \
-         python-pip python-dev build-essential python-virtualenv git
+         python-pip python-dev build-essential python-virtualenv cookiecutter git
 
 # upgrade pip python package manager
 RUN pip install --upgrade pip
-
-# install cookiecutter
-RUN apt-get install cookiecutter
-# download git repo
-
 
 # enable virtualenv and install python dependencies
 RUN virtualenv /venv && \
@@ -33,11 +28,11 @@ RUN virtualenv /venv && \
 
 
 # add entrypoint scripts
-ADD scripts/entrpoint.sh /usr/local/bin/entrypoint.sh
+ADD scripts/entrypoint/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
 
-ENTRYPOINT["entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]
 
 # build
 # cd /project/root/

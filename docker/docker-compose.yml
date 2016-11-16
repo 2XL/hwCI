@@ -1,0 +1,15 @@
+
+app: # service name && container name
+  image: chenlongzq/flaskproject-base:latest # image the service is based from
+  links:  # list of services dependencies
+    - db
+  volumes: # list of volumes to mount
+    - /path/from/docker/host:/path/inner/app
+  volumes_from: # volume containers to attach
+    - cache
+  environment: # Environment variables
+    MYSQL_DB: database_name
+    ...
+db: # another service
+  image: mysql
+  ...
