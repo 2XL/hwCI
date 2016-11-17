@@ -20,22 +20,24 @@ RUN . /venv/bin/activate && \
 ENV WHEELHOUSE=/wheelhouse \
     PIP_WHEEL_DIR=/wheelhouse \
     PIP_FIND_LINKS=/wheelhouse \
-    XDG_CACHE_HOME=/cache           # cache for pip libraries, during testing repetitions,
+    XDG_CACHE_HOME=/cache
+    # cache for pip libraries, during testing repetitions,
 
 
 VOLUME /wheelhouse # OUTPUT: Build artifacts are output here
 VOLUME /reports    # OUTPUT: Test reports are output here
 
 # Add test entrypoint script
-COPY ../scripts/test.sh /usr/local/bin/test.sh
+COPY docker/scripts/test.sh /usr/local/bin/test.sh
 RUN chmod +x /usr/local/bin/test.sh
 
 # set defaults for entrypoint and command string
-ENTRYPOINT["test.sh"]
-CMD ["python", "manage.py", "test", "--noinput"] # to surpress user prompts
+ENTRYPOINT ["test.sh"]
+CMD ["python", "manage.py", "test", "--noinput"]
+# to surpress user prompts
 
 # ADD /{{cookiecutter.project_name}} /app # same, but more powerfull, allow url, tarballs
-ADD /flaskproject /app
+ADD flaskproject /app
 WORKDIR /app
 
 # build

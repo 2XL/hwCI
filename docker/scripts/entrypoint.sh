@@ -1,7 +1,8 @@
-#!/usr/bin/env bash -ex
+#!/bin/sh -x
 
+# -e errexit
 
-./venv/bin/activate # activate virtual env
+. /venv/bin/activate # activate virtual env
 
 exec $@ # execute all the arguments passed to the call
 

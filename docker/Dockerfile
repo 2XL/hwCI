@@ -1,5 +1,7 @@
 FROM ubuntu
 
+LABEL application=flaskproject
+
 MAINTAINER 2XL "chenglong.zq@gmail.com"
 
 # Prevent dpkg erros
@@ -28,7 +30,7 @@ RUN virtualenv /venv && \
 
 
 # add entrypoint scripts
-ADD scripts/entrypoint/entrypoint.sh /usr/local/bin/entrypoint.sh
+ADD scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
 
@@ -36,4 +38,4 @@ ENTRYPOINT ["entrypoint.sh"]
 
 # build
 # cd /project/root/
-# docker build -t <tagname>-base -f docker/Dockerfile .
+# docker build -t <reponame>/<tagname>-base -f docker/Dockerfile .

@@ -92,6 +92,10 @@ solution 2: watchdog python script at the web app entrypoint
 
 solction 3: tell django to restart service if fails but we are in test env...
     |
+    
+attention to yml Dockerfile format check
+    | ENTRYPOINT ["ASDF"] !=  ENTRYPOINT ['ASDF']
+    |   OK                      KO
 
 ```
 

@@ -73,3 +73,21 @@ Use mocha to test ap, using fake user-agents...
     developers
         application source code
 
+
+
+* application artifacts:
+    specs of dev methods or processes
+    | case: source code compiled for testing
+    | result: artifact (executable to test)
+    | composed by: test suite & executable
+    management context 
+    | deliverable
+
+* how to build artifacts:
+    docker containers
+
+    
+    
+**Readings**
+
+[Use docker and test, push your artifacts](https://lostechies.com/gabrielschenker/2016/09/26/use-docker-to-build-test-and-push-your-artifacts/)

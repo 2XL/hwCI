@@ -15,19 +15,20 @@ test: # test app instance
 agent:
   image: chenglongzq/ansible
   volumes:
-    - ../../ansible/probe.yml:/ansible/site.yml # default lookup dir by ansible-playbook
+    - ../ansible/playbooks/probe.yml:/ansible/site.yml # default lookup dir by ansible-playbook
   links:
     - db # stop database before agent starts
   environment:
-    - PROBE_HOST: db
-    - PROBE_PORT: 3306
+    PROBE_HOST: "db"
+    PROBE_PORT: "3306"
+  #  command: ["probe.yml"]
 
-# stop all
-# $ docker-compose rm -f
-# start agent
-# $ docker-compose up agent
-# start docker-compose up test
-# ... all happy ...
+  # stop all
+  # $ docker-compose rm -f
+  # start agent
+  # $ docker-compose up agent
+  # start docker-compose up test
+  # ... all happy ...
 
 db:
   image: mysql:5.6
@@ -44,4 +45,4 @@ cache:
     - /tmp/cache:/cache
   entrypoint: "true"
 
-# docker run --name cache -v /tmp/cache:/cache --entrypoint "true" <tag>
+  # docker run --name cache -v /tmp/cache:/cache --entrypoint "true" <tag>

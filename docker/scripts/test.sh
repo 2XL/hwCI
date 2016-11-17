@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh -x
 
 # activate virtual env
 . /venv/bin/activate
