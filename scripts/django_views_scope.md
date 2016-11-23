@@ -1,0 +1,1 @@
+Django view is simply any function that accepts a request and returns a response.

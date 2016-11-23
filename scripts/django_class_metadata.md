@@ -1,0 +1,1 @@
+http://stackoverflow.com/questions/10344197/how-does-djangos-meta-class-work
