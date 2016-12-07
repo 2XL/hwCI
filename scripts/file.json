@@ -1,0 +1,10 @@
+{
+"url": "http://localhost:8000/api/v1/track/1/?format=json",
+"name": "Learn Python",
+"short_description": "Learn the general purpose programming language Python and build large and small applications and tools.",
+"description": "Python is a very popular language created in 1991, and is used for web applications, servers, information security, artificial intelligence, data science, mathematics, video games, and even robots. It is commonly used by many Fortune 500 companies and top technology startups. By the end of this track, youâ€™ll have what it takes to begin your career in companies that use Python, or even to start your own company!",
+"entry_salary": 72000,
+"course": [
+"http://localhost:8000/api/v1/course/1/?format=json"
+]
+}
